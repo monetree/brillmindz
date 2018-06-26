@@ -1,5 +1,5 @@
 passwordId = document.getElementById('password').oninput = function() { passwordValidation() };
-function passwordValidation(){
+let passwordValidation = function(){ 
 	passwordValue = document.getElementById('password').value;
 	password = document.getElementById('password');
 	passHelp = document.getElementById('passHelp');
@@ -21,7 +21,7 @@ function passwordValidation(){
 	}
 }
 emailId = document.getElementById('email').oninput = function() { emailValidation() };
-function emailValidation(){
+let emailValidation = function(){ 
 	emailValue = document.getElementById('email').value;
 	password = document.getElementById('email');
 	emailHelp = document.getElementById('emailHelp');
