@@ -23,9 +23,9 @@ function passwordValidation(){
 emailId = document.getElementById('email').oninput = function() { emailValidation() };
 function emailValidation(){
 	emailValue = document.getElementById('email').value;
-	password = document.getElementById('email');
+	email = document.getElementById('email');
 	emailHelp = document.getElementById('emailHelp');
-	    var filterEmail = /[@.]+/
+	    var filterEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
     	if (emailValue.match(filterEmail)) {
  		emailHelp.innerHTML = "";
  		email.style.border = "none";
@@ -36,4 +36,14 @@ function emailValidation(){
         email.style.border = "none";
 		email.style.borderBottom = "2px solid red";
         }
+	}
+	
+
+
+
+	if (p.search(/[a-z]/i) < 0) {
+        errors.push("Your password must contain at least one letter."); 
+    }
+    if (p.search(/[0-9]/) < 0) {
+        errors.push("Your password must contain at least one digit.");
     }
