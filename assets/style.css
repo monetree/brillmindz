@@ -27,6 +27,9 @@ body{
 
       outline: none;
   }
+  .btn-info{
+    float:right;font-weight:bold;  
+  }
   .btn-danger{
       float:right;font-weight:bold;
   }

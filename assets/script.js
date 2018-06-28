@@ -1,3 +1,26 @@
+passwordId = document.getElementById('conform_password').oninput = function() { cpasswordValidation() };
+let cpasswordValidation = function(){ 
+	password = document.getElementById('password');
+	cpassword = document.getElementById('conform_password');
+	passwordvalue = document.getElementById('password').value;
+	cpasswordvalue = document.getElementById('conform_password').value;
+	submitButton = document.querySelector('.btn-danger');
+	if(passwordvalue != cpasswordvalue){
+		
+		conform_passHelp.innerHTML = "password should match..";
+		conform_passHelp.style.color = "red";
+		cpassword.style.border = "none";
+		cpassword.style.borderBottom = "2px solid red";
+		submitButton.type = "button";
+	}else{
+		conform_passHelp.innerHTML = "";
+		cpassword.style.border = "none";
+		cpassword.style.borderBottom = "2px solid blue";
+		submitButton.type = "submit";
+	}
+}
+
+
 passwordId = document.getElementById('password').oninput = function() { passwordValidation() };
 let passwordValidation = function(){ 
 	passwordValue = document.getElementById('password').value;
@@ -13,7 +36,24 @@ let passwordValidation = function(){
 		password.style.border = "none";
 		password.style.borderBottom = "2px solid red";
 		submitButton.type = "button";
-	}else{
+	}
+	else if (passwordValue.search(/[a-z]/i) < 0) {
+		passHelp.innerHTML = "Your password must contain at least one letter";
+		passHelp.style.color = "red";
+		password.style.borderBottom = "2px solid red";
+		password.style.border = "none";
+		submitButton.type = "button";
+		
+	}else if (passwordValue.search(/[0-9]/) < 0) {
+
+	passHelp.innerHTML = "Your password must contain at least one digit";
+	passHelp.style.color = "red";
+	password.style.borderBottom = "2px solid red";
+	password.style.border = "none";
+	submitButton.type = "button";
+	
+	}
+	else{
 		passHelp.innerHTML = "";
 		password.style.border = "none";
 		password.style.borderBottom = "2px solid blue";
@@ -40,10 +80,3 @@ let emailValidation = function(){
 	
 
 
-
-	if (p.search(/[a-z]/i) < 0) {
-        errors.push("Your password must contain at least one letter."); 
-    }
-    if (p.search(/[0-9]/) < 0) {
-        errors.push("Your password must contain at least one digit.");
-    }
