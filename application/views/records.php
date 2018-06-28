@@ -42,6 +42,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Dob</th>
+        <th>Gender</th>
         <th>Hobby</th>
         <th>Action</th>
       </tr>
@@ -62,6 +63,16 @@ foreach($records->result() as $row)
      <td style="background:cyan;"><?php echo ucfirst($row->name);?></td>
      <td style="background:cyan;"><?php echo ucfirst($row->email);?></td>
      <td style="background:cyan;"><?php echo ucfirst($row->dob);?></td>
+     <td style="background:cyan;">
+       <?php
+      $gender =$row->gender;
+      if($gender == 2){
+        echo "female";
+      }else{
+        echo "male";
+      }
+        ?>
+     </td>
      <td style="background:cyan;"><a href="http://[::1]/brillmindz/index.php/BaseController/hobby/<?php echo $row->user_id;?>/"><button type="button" id="hobby_button" class="btn btn-sm btn-danger">See hobby</button></a></td>
      <td style="background:cyan;"><a href="http://[::1]/brillmindz/index.php/BaseController/update/<?php echo $row->user_id;?>">Update</a>&nbsp
        <a href="http://[::1]/brillmindz/index.php/BaseController/delete/<?php echo $row->user_id;?>">Delete</a></td>
@@ -74,6 +85,16 @@ foreach($records->result() as $row)
         <td><?php echo ucfirst($row->name);?></td>
         <td><?php echo ucfirst($row->email);?></td>
         <td><?php echo ucfirst($row->dob);?></td>
+        <td style="background:cyan;">
+          <?php
+         $gender =$row->gender;
+         if($gender == 2){
+           echo "female";
+         }else{
+           echo "male";
+         }
+           ?>
+        </td>
         <td><a href="http://[::1]/brillmindz/index.php/BaseController/hobby/<?php echo $row->user_id;?>/"><button type="button" id="hobby_button" class="btn btn-sm btn-danger">See hobby</button></a></td>
         <td><strong>Read Only</strong></td>
       </tr>

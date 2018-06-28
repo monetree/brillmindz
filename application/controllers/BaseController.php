@@ -24,7 +24,7 @@ public function __construct(){
     'errors' => array(
           'required' => 'name is required',
           'alpha' => 'invalid name',
-          'min_length' => 'username is too short'
+          'min_length' => 'username is too short',
                       )
           ),
     array(
@@ -34,29 +34,34 @@ public function __construct(){
           'errors' => array(
               'required' => 'email is required',
               'valid_email' => 'invalid email',
-              // 'is_unique' => 'email already exist'
+              'is_unique' => 'email already exist'
                       )
           ),
     array(
           'field' => 'dob',
-          'label' => 'mobile',
+          'label' => 'dob',
           'rules' => 'trim|required',
           'errors' => array(
                   'required' => 'mobile is required',
-                  'numeric' => 'number must be numeric',
-                  'min_length' => 'invalid mobile',
-                  'max_lenth' => 'Invalid mobile',
-                  'is_unique' => 'number is already exist'
                           )
                 ),
     array(
           'field' => 'password',
           'label' => 'password',
-          'rules' => 'trim|required|min_length[5]|matches[password]|regex_match[/^[a-zA-Z0-9~!#$%^&*()_+>.,<]+$/]',
+          'rules' => 'trim|required|min_length[5]|callback_conform_password_check',
           'errors' => array(
                   'required' => 'password is required',
                   'min_length' => 'password is too short',
-                  'regex_match' => 'Invalid password'
+                            )
+                ),
+    array(
+          'field' => 'conform_password',
+          'label' => 'conform_password',
+          'rules' => 'trim|required|min_length[5]|matches[password]',
+          'errors' => array(
+                  'required' => 'password is required',
+                  'min_length' => 'password is too short',
+                  'matches' => 'password should match'
                             )
                 )
   );
@@ -73,11 +78,10 @@ public function __construct(){
       'password'=>$password,
       'gender'=>$gender
     );
-    print_r
 
     $resp = $this->bm->common_insert($udata,'user');
     if($resp == 3){
-      echo "Email Already Exist";
+      $msg= "Email Already Exist";
     }else if($resp == 1){
       $last_id = $this->db->insert_id();
       $count_hobby = count($hobby);
