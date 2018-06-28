@@ -48,22 +48,12 @@ public function __construct(){
     array(
           'field' => 'password',
           'label' => 'password',
-          'rules' => 'trim|required|min_length[5]|callback_conform_password_check',
+          'rules' => 'trim|required|min_length[5]|alpha_numeric_spaces',
           'errors' => array(
                   'required' => 'password is required',
                   'min_length' => 'password is too short',
                             )
                 ),
-    array(
-          'field' => 'conform_password',
-          'label' => 'conform_password',
-          'rules' => 'trim|required|min_length[5]|matches[password]',
-          'errors' => array(
-                  'required' => 'password is required',
-                  'min_length' => 'password is too short',
-                  'matches' => 'password should match'
-                            )
-                )
   );
   $this->form_validation->set_rules($form_data);
   if($this->form_validation->run()==false){
@@ -82,6 +72,7 @@ public function __construct(){
     $resp = $this->bm->common_insert($udata,'user');
     if($resp == 3){
       $msg= "Email Already Exist";
+ 
     }else if($resp == 1){
       $last_id = $this->db->insert_id();
       $count_hobby = count($hobby);

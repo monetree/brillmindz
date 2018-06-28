@@ -21,7 +21,7 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
               <?php if(isset($ret)){?>
-              <div class="message"><?php echo $ret;?></div>
+              <div class="message"><?php echo $ret;?>..</div>
               <?php
               }
                ?>
