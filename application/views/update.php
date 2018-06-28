@@ -16,19 +16,16 @@
          <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-              <?php if(isset($message)){?>
-              <div class="message"><?php echo $message;?></div>
-              <?php
-              }
-               ?>
+              <div class="form-group">
+                 <input type="text" class="form-control" id="name" name="name" value="<?php echo $rec->row()->name;?>">
+              </div>
                <div class="form-group">
-                  <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" value="<?php echo set_value('email');?>">
+                  <input type="text" class="form-control" id="email" name="email" value="<?php echo $rec->row()->email;?>">
                </div>
                <div class="form-group">
-                  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="<?php echo set_value('password');?>">
+                  <input type="text" class="form-control" id="dob" name="dob" value="<?php echo $rec->row()->dob;?>">
                </div>
-               <a href="<?php echo base_url();?>index.php/BaseController/signup/" style="color:red;">Not Yet registered?? SignUp..</a>
-               <button class="btn btn-danger" type="submit" name="signin">SignIn</button>
+               <button class="btn btn-danger" type="submit" name="update">Update</button>
             </div>
          </div>
          <?php echo form_close();?>

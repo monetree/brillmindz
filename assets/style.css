@@ -7,7 +7,7 @@ body{
     font-size:25px;
 }
   .hobby{
-      outline: none; 
+      outline: none;
       border-radius:3px;
       border:1px solid lightgrey;
 
@@ -24,9 +24,16 @@ body{
       padding:20px;
   }
   .form-control{
-     
-      outline: none; 
+
+      outline: none;
   }
   .btn-danger{
       float:right;font-weight:bold;
+  }
+  .message{
+    padding:10px;
+    background:#dc3545;
+    color:white;
+    font-weight:bold;
+    text-align:center;
   }
